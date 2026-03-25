@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_work
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Daniel123+
+      MYSQL_DATABASE: daniel
+      MYSQL_USER: luis
+      MYSQL_PASSWORD: Daniel123+
+    ports:
+      - "3306:3306"
+    volumes:
+      mysql_data_nuevo:/var/lib/mysql
+    command: --bind-address=0.0.0.0
+    networks:
+      - mysql_network
+
+networks:
+  mysql_network:
+    driver: bridge
+
+volumes:
+  mysql_data_nuevo:
+  
