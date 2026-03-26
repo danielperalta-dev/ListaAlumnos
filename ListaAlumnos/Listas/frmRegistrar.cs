@@ -9,10 +9,10 @@ using System.Windows.Forms;
 
 namespace ListaAlumnos.Listas
 {
-    public partial class frmAsistencia : Form
+    public partial class frmRegistrar : Form
     {
         DatosA datos = new DatosA();
-        public frmAsistencia()
+        public frmRegistrar()
         {
             InitializeComponent();
         }

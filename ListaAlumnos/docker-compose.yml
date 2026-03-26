@@ -11,7 +11,7 @@ services:
       MYSQL_USER: luis
       MYSQL_PASSWORD: Daniel123+
     ports:
-      - "3306:3306"
+      - "3308:3306"
     volumes:
       mysql_data_nuevo:/var/lib/mysql
     command: --bind-address=0.0.0.0

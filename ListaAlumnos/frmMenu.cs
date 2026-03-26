@@ -18,14 +18,19 @@ namespace ListaAlumnos
 
         private void asistenciaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAsistencia asistencia = new frmAsistencia();
+            frmRegistrar asistencia = new frmRegistrar();
             asistencia.ShowDialog();
         }
 
         private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmBuscar buscar = new frmBuscar();
+            frmAlumnos buscar = new frmAlumnos();
             buscar.ShowDialog();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

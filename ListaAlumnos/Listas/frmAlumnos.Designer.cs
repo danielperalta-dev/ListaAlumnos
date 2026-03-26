@@ -1,6 +1,6 @@
 ﻿namespace ListaAlumnos.Listas
 {
-    partial class frmBuscar
+    partial class frmAlumnos
     {
         /// <summary>
         /// Required designer variable.
@@ -40,6 +40,7 @@
             dgvAlumnos = new DataGridView();
             ctmEliminar = new ContextMenuStrip(components);
             eliminarToolStripMenuItem = new ToolStripMenuItem();
+            eliminarAlumnoToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -146,25 +147,32 @@
             // 
             // ctmEliminar
             // 
-            ctmEliminar.Items.AddRange(new ToolStripItem[] { eliminarToolStripMenuItem });
+            ctmEliminar.Items.AddRange(new ToolStripItem[] { eliminarToolStripMenuItem, eliminarAlumnoToolStripMenuItem });
             ctmEliminar.Name = "ctmEliminar";
-            ctmEliminar.Size = new Size(118, 26);
+            ctmEliminar.Size = new Size(181, 70);
             // 
             // eliminarToolStripMenuItem
             // 
             eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            eliminarToolStripMenuItem.Size = new Size(117, 22);
-            eliminarToolStripMenuItem.Text = "Eliminar";
+            eliminarToolStripMenuItem.Size = new Size(180, 22);
+            eliminarToolStripMenuItem.Text = "Eliminar asistencia";
             eliminarToolStripMenuItem.Click += eliminarToolStripMenuItem_Click;
             // 
-            // frmBuscar
+            // eliminarAlumnoToolStripMenuItem
+            // 
+            eliminarAlumnoToolStripMenuItem.Name = "eliminarAlumnoToolStripMenuItem";
+            eliminarAlumnoToolStripMenuItem.Size = new Size(180, 22);
+            eliminarAlumnoToolStripMenuItem.Text = "Eliminar alumno";
+            eliminarAlumnoToolStripMenuItem.Click += eliminarAlumnoToolStripMenuItem_Click;
+            // 
+            // frmAlumnos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 409);
             Controls.Add(splitContainer1);
-            Name = "frmBuscar";
-            Text = "frmBuscar";
+            Name = "frmAlumnos";
+            Text = "Asistencia";
             Load += frmBuscar_Load;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
@@ -189,5 +197,6 @@
         private DataGridView dgvAlumnos;
         private ContextMenuStrip ctmEliminar;
         private ToolStripMenuItem eliminarToolStripMenuItem;
+        private ToolStripMenuItem eliminarAlumnoToolStripMenuItem;
     }
 }

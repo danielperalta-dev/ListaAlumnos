@@ -30,6 +30,7 @@
         {
             menuStrip1 = new MenuStrip();
             archivoToolStripMenuItem = new ToolStripMenuItem();
+            salirToolStripMenuItem = new ToolStripMenuItem();
             alumnosToolStripMenuItem = new ToolStripMenuItem();
             asistenciaToolStripMenuItem = new ToolStripMenuItem();
             buscarToolStripMenuItem = new ToolStripMenuItem();
@@ -47,9 +48,17 @@
             // 
             // archivoToolStripMenuItem
             // 
+            archivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { salirToolStripMenuItem });
             archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             archivoToolStripMenuItem.Size = new Size(60, 20);
             archivoToolStripMenuItem.Text = "Archivo";
+            // 
+            // salirToolStripMenuItem
+            // 
+            salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            salirToolStripMenuItem.Size = new Size(180, 22);
+            salirToolStripMenuItem.Text = "Salir";
+            salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
             // alumnosToolStripMenuItem
             // 
@@ -62,14 +71,14 @@
             // 
             asistenciaToolStripMenuItem.Name = "asistenciaToolStripMenuItem";
             asistenciaToolStripMenuItem.Size = new Size(180, 22);
-            asistenciaToolStripMenuItem.Text = "Asistencia";
+            asistenciaToolStripMenuItem.Text = "Registrar alumno";
             asistenciaToolStripMenuItem.Click += asistenciaToolStripMenuItem_Click;
             // 
             // buscarToolStripMenuItem
             // 
             buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
             buscarToolStripMenuItem.Size = new Size(180, 22);
-            buscarToolStripMenuItem.Text = "Buscar";
+            buscarToolStripMenuItem.Text = "Asistencia";
             buscarToolStripMenuItem.Click += buscarToolStripMenuItem_Click;
             // 
             // frmMenu
@@ -80,7 +89,7 @@
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "frmMenu";
-            Text = "frmMenu";
+            Text = "Menu";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -94,5 +103,6 @@
         private ToolStripMenuItem alumnosToolStripMenuItem;
         private ToolStripMenuItem asistenciaToolStripMenuItem;
         private ToolStripMenuItem buscarToolStripMenuItem;
+        private ToolStripMenuItem salirToolStripMenuItem;
     }
 }

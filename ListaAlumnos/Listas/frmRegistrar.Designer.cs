@@ -1,6 +1,6 @@
 ﻿namespace ListaAlumnos.Listas
 {
-    partial class frmAsistencia
+    partial class frmRegistrar
     {
         /// <summary>
         /// Required designer variable.

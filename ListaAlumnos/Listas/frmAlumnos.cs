@@ -10,10 +10,10 @@ using System.Windows.Forms;
 namespace ListaAlumnos.Listas
 {
 
-    public partial class frmBuscar : Form
+    public partial class frmAlumnos : Form
     {
         DatosA datos = new DatosA();
-        public frmBuscar()
+        public frmAlumnos()
         {
             InitializeComponent();
         }
@@ -204,6 +204,48 @@ namespace ListaAlumnos.Listas
             if (dgvAlumnos.IsCurrentCellDirty)
             {
                 dgvAlumnos.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
+
+        private void eliminarAlumnoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            // Obtenemos el número de control y nombre para la confirmación
+            string nc = dgvAlumnos.CurrentRow.Cells["nControl"].Value.ToString();
+            string nombre = dgvAlumnos.CurrentRow.Cells["nombre"].Value.ToString();
+
+            // Confirmación de seguridad
+            DialogResult result = MessageBox.Show(
+                $"¿ESTÁS SEGURO? Esta acción eliminará permanentemente al alumno {nombre} ({nc}) " +
+                "y TODOS sus registros de asistencia históricos.",
+                "Advertencia de Eliminación Total",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    // Eliminamos primero de la tabla de asistencias (por integridad referencial)
+                    datos.ejecutarComando($"DELETE FROM asistencia WHERE nControl = '{nc}'");
+
+                    // Eliminamos de la tabla principal de alumnos
+                    bool exito = datos.ejecutarComando($"DELETE FROM AlumnosLista WHERE nControl = '{nc}'");
+
+                    if (exito)
+                    {
+                        MessageBox.Show("El alumno y su historial han sido eliminados correctamente.", "Sistema");
+                        cargarEstudiantes(); // Refrescamos el DataGridView
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar el registro del alumno.", "Error");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ocurrió un error: " + ex.Message, "Error Crítico");
+                }
             }
         }
     }
