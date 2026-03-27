@@ -30,6 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             splitContainer1 = new SplitContainer();
+            btnGuardar = new Button();
             btnBuscar = new Button();
             cmbBuscar = new ComboBox();
             txtNControl = new TextBox();
@@ -39,7 +40,6 @@
             lblFecha = new Label();
             dgvAlumnos = new DataGridView();
             ctmEliminar = new ContextMenuStrip(components);
-            eliminarToolStripMenuItem = new ToolStripMenuItem();
             eliminarAlumnoToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -57,6 +57,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            splitContainer1.Panel1.Controls.Add(btnGuardar);
             splitContainer1.Panel1.Controls.Add(btnBuscar);
             splitContainer1.Panel1.Controls.Add(cmbBuscar);
             splitContainer1.Panel1.Controls.Add(txtNControl);
@@ -73,9 +74,19 @@
             splitContainer1.SplitterDistance = 135;
             splitContainer1.TabIndex = 6;
             // 
+            // btnGuardar
+            // 
+            btnGuardar.Location = new Point(375, 97);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(75, 23);
+            btnGuardar.TabIndex = 13;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
+            // 
             // btnBuscar
             // 
-            btnBuscar.Location = new Point(340, 97);
+            btnBuscar.Location = new Point(272, 97);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(75, 23);
             btnBuscar.TabIndex = 12;
@@ -142,21 +153,15 @@
             dgvAlumnos.Name = "dgvAlumnos";
             dgvAlumnos.Size = new Size(801, 264);
             dgvAlumnos.TabIndex = 0;
+            dgvAlumnos.CellContentDoubleClick += dgvAlumnos_CellContentDoubleClick;
             dgvAlumnos.CellValueChanged += dgvAlumnos_CellValueChanged;
             dgvAlumnos.CurrentCellDirtyStateChanged += dgvAlumnos_CurrentCellDirtyStateChanged;
             // 
             // ctmEliminar
             // 
-            ctmEliminar.Items.AddRange(new ToolStripItem[] { eliminarToolStripMenuItem, eliminarAlumnoToolStripMenuItem });
+            ctmEliminar.Items.AddRange(new ToolStripItem[] { eliminarAlumnoToolStripMenuItem });
             ctmEliminar.Name = "ctmEliminar";
-            ctmEliminar.Size = new Size(181, 70);
-            // 
-            // eliminarToolStripMenuItem
-            // 
-            eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            eliminarToolStripMenuItem.Size = new Size(180, 22);
-            eliminarToolStripMenuItem.Text = "Eliminar asistencia";
-            eliminarToolStripMenuItem.Click += eliminarToolStripMenuItem_Click;
+            ctmEliminar.Size = new Size(181, 48);
             // 
             // eliminarAlumnoToolStripMenuItem
             // 
@@ -171,9 +176,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 409);
             Controls.Add(splitContainer1);
+            KeyPreview = true;
             Name = "frmAlumnos";
             Text = "Asistencia";
             Load += frmBuscar_Load;
+            KeyDown += frmAlumnos_KeyDown;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
             splitContainer1.Panel2.ResumeLayout(false);
@@ -196,7 +203,7 @@
         private Label lblFecha;
         private DataGridView dgvAlumnos;
         private ContextMenuStrip ctmEliminar;
-        private ToolStripMenuItem eliminarToolStripMenuItem;
         private ToolStripMenuItem eliminarAlumnoToolStripMenuItem;
+        private Button btnGuardar;
     }
 }
